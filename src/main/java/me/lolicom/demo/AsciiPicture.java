@@ -36,6 +36,14 @@ public class AsciiPicture {
         print(margin, invert, out);
     }
     
+    /**
+     * 从属性文件中获取值，可以传入一个默认的属性名，将在找不到指定的属性时作为默认值返回
+     *
+     * @param properties 属性
+     * @param name 指定的属性名
+     * @param defaultName 默认属性的属性名
+     * @return 属性值，也可能是默认值
+     */
     private String getProperty(Properties properties, String name, String defaultName) {
         String value = properties.getProperty(name, properties.getProperty(defaultName));
         if ("".equals(value)) {
@@ -83,6 +91,13 @@ public class AsciiPicture {
         return PIXELS[PIXELS.length - 1];
     }
     
+    /**
+     * 获取灰度值，当
+     *
+     * @param color 颜色
+     * @param inverse 是否反转
+     * @return 结果
+     */
     protected int getLuminance(Color color, boolean inverse) {
         double luminance = 0.0;
         luminance += getLuminance(color.getRed(), inverse, RGB_WEIGHT[0]);

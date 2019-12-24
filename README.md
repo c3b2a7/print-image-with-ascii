@@ -48,6 +48,6 @@ java -jar print-image-with-ascii-[version].jar
 4. 关闭自动调整大小，设置宽80高40 在终端输出效果：
 `java -jar print-image-with-ascii-[version].jar -f D:/cat.jpg -r false -w 80 -h 40`
 
-##note
+## note
 一般来说可以不加上`[-o|-out]`参数默认输出在终端，查看效果，如果可以再加上`[-o|-out]`参数，默认输出文件名 `源文件名.txt`
 
