@@ -51,3 +51,12 @@ java -jar print-image-with-ascii-[version].jar
 ## note
 一般来说可以不加上`[-o|-out]`参数默认输出在终端，查看效果，如果可以再加上`[-o|-out]`参数，默认输出文件名 `源文件名.txt`
 
+## 演示
+![演示][1]
+
+
+
+
+
+
+[1]: https://github.com/Leisureee/print-image-with-ascii/blob/master/2019-12-24-22-18-14.gif
