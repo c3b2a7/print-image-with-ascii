@@ -1,4 +1,4 @@
-#print image with ascii
+# print image with ascii
 
 ## 使用
 
