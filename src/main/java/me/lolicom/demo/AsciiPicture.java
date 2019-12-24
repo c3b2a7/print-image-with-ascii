@@ -92,7 +92,7 @@ public class AsciiPicture {
     }
     
     /**
-     * 获取灰度值，当
+     * 获取灰度值，当inverse为true时，获得一个相反的灰度值
      *
      * @param color 颜色
      * @param inverse 是否反转
