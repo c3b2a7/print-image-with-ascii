@@ -42,10 +42,10 @@ java -jar print-image-with-ascii-[version].jar
 2. 将文件 D:/cat.jpg 输出到 D:/cat.txt:  
 `java -jar print-image-with-ascii-[version].jar -f D:/cat.jpg -o D:/cat.txt`
 
-3. 将文件 D:/cat.jpg 反转灰度值输出在终端：
+3. 将文件 D:/cat.jpg 反转灰度值输出在终端：  
 `java -jar print-image-with-ascii-[version].jar -f D:/cat.jpg -i`
 
-4. 关闭自动调整大小，设置宽80高40 在终端输出效果：
+4. 关闭自动调整大小，设置宽80高40 在终端输出效果：  
 `java -jar print-image-with-ascii-[version].jar -f D:/cat.jpg -r false -w 80 -h 40`
 
 ## note
