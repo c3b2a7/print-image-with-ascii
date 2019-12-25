@@ -39,7 +39,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>me.lolicom.App</mainClass>
+                            <mainClass>me.lolicom.Program</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
