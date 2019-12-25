@@ -22,7 +22,7 @@ java -jar print-image-with-ascii-[version].jar
         指定高度,一般来说不用指定，因为默认开启自动调整大小，需要调整时添加此参数
         java -jar print-image-with-ascii-[version].jar -h 40
 
-    [-margin]
+    [-m|-margin]
         输出字符画时可选的边距
 
     [-f|-file]
