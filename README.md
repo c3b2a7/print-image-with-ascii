@@ -26,7 +26,7 @@ java -jar print-image-with-ascii-[version].jar
         输出字符画时可选的边距
 
     [-f|-file]
-        指定图片路径，此参数一定要有，默认输出一只猫的字符画
+        指定图片的路劲，可以是本地图片也可以是网络图片
         java -jar print-image-with-ascii-[version].jar -f temp.jpg
 
     [-o|-out]
