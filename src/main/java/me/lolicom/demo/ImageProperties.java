@@ -1,6 +1,7 @@
 package me.lolicom.demo;
 
 import java.io.*;
+import java.net.URL;
 import java.util.Map;
 
 /**
@@ -14,11 +15,10 @@ public class ImageProperties {
     private int margin = 0;
     private boolean resize = true;
     private boolean invert;
-    private InputStream in = ImageProperties.class.getResourceAsStream("/cat.jpg");
-    private PrintStream out = System.out;
+    private String in;
+    private String out;
     
-    public ImageProperties(Map<String, String> map) throws FileNotFoundException {
-        File file = null;
+    public ImageProperties(Map<String, String> map) {
         for (Map.Entry<String, String> entry : map.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
@@ -45,18 +45,12 @@ public class ImageProperties {
                     break;
                 case "f":
                 case "file":
-                    file = new File(value);
-                    this.in = new FileInputStream(file);
+                    this.in = value;
                     break;
-            }
-        }
-        if (file != null) {
-            if ((map.containsKey("o") || map.containsKey("out"))) {
-                String outPath = map.containsKey("o") ? map.get("o") : map.get("out");
-                if (outPath.equals(""))
-                    out = new PrintStream(file.getName() + ".txt");
-                else
-                    out = new PrintStream(outPath);
+                case "o":
+                case "out":
+                    this.out = value;
+                    break;
             }
         }
     }
@@ -101,19 +95,34 @@ public class ImageProperties {
         this.invert = invert;
     }
     
-    public InputStream getIn() {
-        return in;
+    public InputStream getIn() throws IOException {
+        if (this.in == null || "".equals(this.in)) {
+            return ImageProperties.class.getResourceAsStream("/cat.jpg");
+        }
+        if (this.in.startsWith("http")) {
+            return new URL(this.in).openStream();
+        }
+        return new FileInputStream(this.in);
     }
     
-    public void setIn(InputStream in) {
+    public void setIn(String in) {
         this.in = in;
     }
     
-    public PrintStream getOut() {
-        return out;
+    public PrintStream getOut() throws FileNotFoundException {
+        if (this.in != null && !"".equals(this.in)) {
+            if (this.out != null) {
+                if ("".equals(this.out)) {
+                    String fileName = this.in.substring(this.in.lastIndexOf('/') + 1);
+                    return new PrintStream(fileName + ".txt");
+                }
+                return new PrintStream(this.out);
+            }
+        }
+        return System.out;
     }
     
-    public void setOut(PrintStream out) {
+    public void setOut(String out) {
         this.out = out;
     }
 }

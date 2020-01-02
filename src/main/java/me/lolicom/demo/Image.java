@@ -14,20 +14,21 @@ public class Image {
     private static final double[] RGB_WEIGHT = {0.2126d, 0.7152d, 0.0722d, 0.229d, 0.578d, 0.114d};
     private ImageProperties properties;
     private BufferedImage image;
+    private PrintStream out;
     
     public Image(ImageProperties properties) throws IOException {
         this(properties, ImageIO.read(properties.getIn()));
     }
     
-    public Image(ImageProperties imageProperties, BufferedImage image) {
-        this.properties = imageProperties;
+    public Image(ImageProperties properties, BufferedImage image) throws IOException {
+        this.properties = properties;
         this.image = image;
+        this.out = properties.getOut();
     }
     
     public void print() {
         prePrint();
         for (int y = 0; y < image.getHeight(); y++) {
-            PrintStream out = properties.getOut();
             for (int i = 0; i < properties.getMargin(); i++) {
                 out.print(' ');
             }
