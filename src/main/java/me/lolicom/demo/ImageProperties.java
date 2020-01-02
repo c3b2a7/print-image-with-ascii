@@ -45,11 +45,11 @@ public class ImageProperties {
                     break;
                 case "f":
                 case "file":
-                    this.in = value;
+                    setIn(value);
                     break;
                 case "o":
                 case "out":
-                    this.out = value;
+                    setOut(value);
                     break;
             }
         }
@@ -106,7 +106,11 @@ public class ImageProperties {
     }
     
     public void setIn(String in) {
-        this.in = in;
+        if (!in.startsWith("http")) {
+            this.in = new File(in).toURI().getPath();
+        } else {
+            this.in = in;
+        }
     }
     
     public PrintStream getOut() throws FileNotFoundException {
